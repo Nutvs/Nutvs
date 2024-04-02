@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<link rel="shortcut icon" type="image/x-icon" href="img/voting.png">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
+<link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+<!--
+<link href="assets/bootstrap-datepicker-thai/css/datepicker.css" rel="stylesheet">
+<script type="text/javascript" src="bootstrap-datepicker-thai/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="bootstrap-datepicker-thai/js/bootstrap-datepicker-thai.js"></script>
+<script type="text/javascript" src="bootstrap-datepicker-thai/js/locales/bootstrap-datepicker.th.js"></script>
+-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ระบบจองคิวนัดหมายปรึกษาเจ้าหน้าที่</title>
+
+  <!-- CSS -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pridi&display=swap');
+
+    body {
+      background-image: url('img/logo.jpg');
+      object-fit: cover;
+      background-color: #e0f7fa;
+      background-size: 100%;
+      background-position: center center;
+      background-repeat: no-repeat;
+      opacity: 0.7;
+      color: #333;
+      font: 100% 'Pridi', Serif;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      color: red;
+      font-family: 'Pridi', serif;
+      font-size: 20px;
+    }
+
+    label {
+      color: black;
+      font-size: large;
+      font-family: 'Pridi', serif;
+    }
+
+    img {
+    max-width: 100%;
+    height: auto;
+    }
+    
+  </style>
+  <!-- Html -->
+
+
+</head>
+<div class="container-fluid">
+  <div class="img">
+    <img src="img/Banner.jpg" alt="baner Excise">
+  </div>
+</div>
+
+<body>
+  <form method="post" autocomplete="Off" name="hello-sheet">
+    <div class="container">
+      <div class="col">
+        <div class="col-12 col-md col-lg-12">
+
+          <h1 class="text-center">จองคิว/นัดหมาย ปรึกษาเจ้าหน้าที่</h1>
+        </div> <br>
+
+        <div class="form-group">
+          <label for="name">ชื่อ - นามสกุล</label>
+          <input type="text" class="form-control" placeholder="ชื่อ - นามสกุล" name="ชื่อ-สกุล">
+        </div>
+
+        <div class="form-group">
+          <label for="name">เบอร์โทร</label>
+          <input type="tel" class="form-control" text="'" placeholder="เบอร์โทร" name="เบอร์โทร">
+        </div>
+
+        <div>
+          <label for="start">วันที่</label>
+
+          <input id="datepicker" placeholder="หยุดวันเสาร์ - อาทิตย์ และ นักขัตฤกษ์" name="วันที่จอง" />
+
+          <script>
+            $('#datepicker').datepicker({
+              timepicker: false,
+              language: 'th',
+              format: 'dd/mm/yyyy',
+              yearOffset: 543,
+              uiLibrary: 'bootstrap',
+              autoclose: true
+            });
+          </script>
+
+        </div> <br>
+
+        <div>
+          <label for="name">ช่วงเวลา</label>
+          <select class="form-control" placeholder="เลือกช่วงเวลา" name="ช่วงเวลา">
+            <option>เลือกช่วงเวลา</option>
+            <option>ช่วงเช้า (09:00 น. - 11:00 น.)</option>
+            <option>ช่วงบ่าย (13:00 น. - 15:00 น.)</option>
+          </select>
+        </div> <br>
+
+        <div>
+          <label for="name">หัวข้อเข้าปรึกษา</label>
+          <select class="form-control" placeholder="หัวข้อเข้าปรึกษา" name="หัวข้อ">
+            <option>เลือกหัวข้อ</option>
+            <option>ยกเว้น คืน ลดหย่อนภาษี</option>
+            <option>การนำเข้าสินค้า</option>
+            <option>งานโซลเว้น</option>
+            <option>การตั้งโรงงานผลิตสุรา</option>
+            <option>อื่นๆ...</option>
+          </select>
+        </div> <br>
+
+        <div class="form-group">
+          <label for="name">หมายเหตุ</label>
+          <input type="text" class="form-control" placeholder="หมายเหตุ" name="หมายเหตุ" style="height: 75px;">
+        </div>
+
+        <br>
+        <button type="submit" name="submit" value="Send message" class="btn btn-success btn-lg btn-block">บันทึก</button>
+
+  </form>
+
+  </div>
+  </div>
+  </div>
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbz9tqCfoGz2R94llnguuf8qJcOcOdIn8ipFL3jZopJeaSGaBUan2qp-wBS6kunbmBIZ/exec'
+    const form = document.forms['hello-sheet']
+    const submitButton = form.querySelector('button[type="submit"]')
+    const loadingIndicator = document.createElement('span')
+    loadingIndicator.innerHTML = '<i class="fas fa-spinner fa-spin"></i> กรุณารอสักครู่...'
+
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      submitButton.disabled = true
+      submitButton.appendChild(loadingIndicator)
+
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+          submitButton.disabled = false
+          submitButton.removeChild(loadingIndicator)
+          swal("บันทึกข้อมูลเรียบร้อยแล้ว", "โปรดนำบัตรประชาชนยืนยันกับเจ้าหน้าที่", "success")
+        })
+        .catch(error => {
+          console.error('Error!', error.message)
+          submitButton.disabled = false
+          submitButton.removeChild(loadingIndicator)
+        })
+    })
+  </script>
+
+
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</body>
+
+<br><br>
+
+<div class="text-center">
+  <p>© Copyright Chonburi 2 Area Excise, 2023. All rights reserved.</p>
+</div>
+
+</html>
